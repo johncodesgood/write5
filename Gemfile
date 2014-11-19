@@ -39,3 +39,9 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'bourbon'
+
+gem 'neat'
+
+gem 'pry-rails'
+
+gem 'pry'
