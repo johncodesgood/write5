@@ -39,8 +39,9 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'bourbon'
-
+gem 'bitters'
 gem 'neat'
+
 
 gem 'pry-rails'
 
