@@ -5,9 +5,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  @article = Article.new(article_params)
-    if @article.save
-      redirect_to @article
+    article = Article.new(article_params)
+    if article.save
+      current_user.articles << article
+      redirect_to "/users/#{current_user.id}"
     else
       render 'new'
     end
@@ -29,7 +30,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
  
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to "/users/#{current_user.id}"
     else
       render 'edit'
     end
@@ -39,7 +40,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
  
-    redirect_to articles_path
+    redirect_to "/users/#{current_user.id}"
   end
 
   private

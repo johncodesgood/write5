@@ -1,23 +1,15 @@
+<%= form_tag sessions_path do |f| %>
   <p>
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name %>
   </p>
- 
   <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= label_tag :password %><br>
+    <%= text_field_tag :password %>
   </p>
 
   <p>
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= submit_tag "Sign in" %>
   </p>
 
-    <p>
-    <%= f.label :password_confirm %><br>
-    <%= f.text_field :password_confirm %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+<% end %>
