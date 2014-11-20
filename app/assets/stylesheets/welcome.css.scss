@@ -1,6 +1,6 @@
 
 .navigation {
-   background-image: url('./niteowl.jpg');
+   @include background(linear-gradient(#FAFAFA, #F7F7F7) left repeat);
    height: 50px;
    text-align: right;
 
