@@ -1,7 +1,7 @@
 require 'pry'
 
 class UsersController < ApplicationController
- 
+
   def new
     @user = User.new
   end
@@ -20,17 +20,26 @@ class UsersController < ApplicationController
   #   @users = User.all
   # end
 
+  def survey
+    @word_count = params[:word_count]
+    @political = params[:political]
+    @recycle = params[:recycle]
+
+    current_user.update_columns(word_count: @word_count, political: @political, recycle: @recycle, surveyed: true)
+    redirect_to user_path(current_user)
+  end
+
   def show
     @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])  
+    @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
- 
+
     if @user.update(user_params)
       redirect_to @user
     else
@@ -41,7 +50,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
- 
+
     redirect_to users_path
   end
 
@@ -50,5 +59,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password)
     end
-  
+
 end

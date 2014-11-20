@@ -1,3 +1,5 @@
+<% if current_user.surveyed %>
+
 <h1>Welcome <%= @user.name %>!</h1>
 
 <p>
@@ -71,5 +73,10 @@
 <% end %>
 </table>
 
+<% else %>
+<h1>Thanks for signing up!</h1>
+<h2>We just have a few questions:</h2>
 
+<%= render partial: 'survey' %>
 
+<% end %>
