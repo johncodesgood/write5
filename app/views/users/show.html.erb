@@ -28,8 +28,10 @@
 <% week_end = Date.today.at_end_of_week %>
 <% count = 0 %>
 <% current_user.articles.reverse_each do |article| %>
-    <% if article.created_at >= week_begin %>
-    <% count += 1 %>
+    <% if (article.created_at >= week_begin) %>
+       <% if article.text.split.size >= current_user.word_count.to_i %>
+        <% count += 1 %>
+       <% end %>
   <tr>
     <td><%= article.title %></td>
     <td><%= article.created_at %></td>

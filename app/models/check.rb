@@ -13,7 +13,7 @@ class Check < ActiveRecord::Base
       users.each do |user|
         count = 0
         user.articles.each do |article|
-          if article.created_at >= week_begin
+          if (article.created_at >= week_begin) && (article.text.split.size >= user.word_count.to_i)
             count += 1
           end          
         end
