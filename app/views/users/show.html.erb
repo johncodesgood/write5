@@ -11,3 +11,28 @@
 </p>
  
 <%= link_to 'Edit Account', edit_user_path(@user) %>
+
+<h1>List of Entries</h1>
+<%= link_to 'New article', new_article_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th colspan="3"></th>
+  </tr>
+<% if current_user.articles %> 
+<% current_user.articles.reverse_each do |article| %>
+  <tr>
+    <td><%= article.title %></td>
+    <td><%= article.created_at %></td>
+    <td><%= link_to 'Show', article_path(article) %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Delete', article_path(article),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+ <% end %> 
+<% end %>
+</table>
+
+<h1>Shaming Status</h1>
+
