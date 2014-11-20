@@ -6,9 +6,18 @@
 
 }
 
+.landing {
+  background-image: url('./niteowl.jpg');
+  color: #F7F7F7;
+}
+
 body {
-  @include background(linear-gradient(#FCFCFC, #F7F7F7) left repeat);
+  background-color: #F7F7F7;
+
 }
 
 
 
+* {
+  font: "Times";
+}
