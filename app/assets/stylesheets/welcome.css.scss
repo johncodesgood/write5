@@ -1,8 +1,9 @@
 
 .navigation {
-    @include background(linear-gradient(#F7F7F7, #DCDCDC) left repeat);
+    @include background(linear-gradient(#fafafa, #f2f2f2) left repeat);
    height: 50px;
    text-align: right;
+
 
 }
 
@@ -19,7 +20,7 @@
   
 
 body {
-  background-color: #F7F7F7;
+  background-color: #F2f2f2;
 
 }
 
