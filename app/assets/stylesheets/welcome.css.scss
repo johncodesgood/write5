@@ -1,6 +1,14 @@
-body {
-  background-color: #cccccc;
-  background: url('./niteowl.jpg');
-  background-size: cover;
-  opacity: .83;
+
+.navigation {
+   background-image: url('./niteowl.jpg');
+   height: 50px;
+   text-align: right;
+
 }
+
+body {
+  @include background(linear-gradient(#FCFCFC, #F7F7F7) left repeat);
+}
+
+
+
