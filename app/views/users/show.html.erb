@@ -12,7 +12,8 @@
  
 <%= link_to 'Edit Account', edit_user_path(@user) %>
 
-<h1>List of Entries</h1>
+
+<h1>Current Week Entries</h1>
 <%= link_to 'New article', new_article_path %>
 <table>
   <tr>
@@ -21,7 +22,12 @@
     <th colspan="3"></th>
   </tr>
 <% if current_user.articles %> 
+<% week_begin = Date.today.at_beginning_of_week %>
+<% week_end = Date.today.at_end_of_week %>
+<% count = 0 %>
 <% current_user.articles.reverse_each do |article| %>
+    <% if article.created_at >= week_begin %>
+    <% count += 1 %>
   <tr>
     <td><%= article.title %></td>
     <td><%= article.created_at %></td>
@@ -30,9 +36,40 @@
     <td><%= link_to 'Delete', article_path(article),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% end %>
  <% end %> 
 <% end %>
 </table>
 
 <h1>Shaming Status</h1>
+<% if count >= 5 %>
+  <% You have completed all of your entries this week! %>
+<% else %>
+<h3>You have completed <%= count %> of 5 entries this week!</h3>
+<% end %>
+
+<h1>Preious Weeks Entries</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th colspan="3"></th>
+  </tr>
+<% if current_user.articles %> 
+<% current_user.articles.reverse_each do |article| %>
+  <% if article.created_at < week_begin %>
+  <tr>
+    <td><%= article.title %></td>
+    <td><%= article.created_at %></td>
+    <td><%= link_to 'Show', article_path(article) %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Delete', article_path(article),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+ <% end %> 
+<% end %>
+</table>
+
+
 
