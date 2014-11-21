@@ -1,6 +1,13 @@
 
-.navigation {
-    @include background(linear-gradient(#fafafa, #f2f2f2) left repeat);
+body {
+  background-color: #FFFFFB;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+.navigation { /* leaving option for gradient open */
+    @include background(linear-gradient( #FFFFFb,#FFFFFB) left repeat);
    height: 50px;
    text-align: right;
 
@@ -9,7 +16,7 @@
 
 .landing {
   height: 500px;
-  color: #F7F7F7;
+  color: #FFFFFB;
   background: url('./niteowl.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -17,10 +24,26 @@
   background-size: cover;
 }
 
-  
+.landing-text {
+  text-align: center;
+}  
 
-body {
-  background-color: #F2f2f2;
-
+.shaming {
+  margin-bottom: 50px;
+  box-shadow:none;
 }
 
+div.shaming:hover, div.current-week:hover, div.previous-week:hover {
+  -moz-box-shadow: 0 0 5px rgba(255,0,0,0.5);
+  -webkit-box-shadow: 0 0 5px rgba(255,0,0,0.5);
+  box-shadow: 0 0 5px rgba(255,0,0,0.5);
+  }
+
+
+.current-week {
+    margin-bottom: 50px;
+  }
+
+
+
+/* FFFFFB = off-white */

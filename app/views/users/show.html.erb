@@ -1,11 +1,20 @@
 
 
+
 <% if current_user.surveyed %>
 
 <h1>Welcome <%= @user.name %>!</h1>
 
 <h1>Current Week's Entries</h1>
-<%= link_to 'New article', new_article_path %>
+
+ 
+
+<%= link_to 'Start Writing!', new_article_path %>
+<br><br>
+
+<div class="current-week">
+<h4>Current Week Entries</h4>
+
 <table>
   <tr>
     <th>Title</th>
@@ -33,15 +42,21 @@
  <% end %> 
 <% end %>
 </table>
+</div>
 
-<h1>Shaming Status</h1>
+
+<div class="shaming">
+<h4>Shaming Status</h4>
 <% if count >= 5 %>
   <% You have completed all of your entries this week! %>
 <% else %>
-<h3>You have completed <%= count %> of 5 entries this week!</h3>
+<h6>You have completed <%= count %> of 5 entries this week!</h6>
 <% end %>
+</div>
 
-<h1>Previous Weeks Entries</h1>
+
+<div class="previous-week">
+<h4>Previous Weeks Entries</h4>
 <table>
   <tr>
     <th>Title</th>
@@ -53,7 +68,7 @@
   <% if article.created_at < week_begin %>
   <tr>
     <td><%= article.title %></td>
-    <td><%= article.created_at %></td>
+    <td><%= article.created_at%></td>
     <td><%= link_to 'Show', article_path(article) %></td>
     <td><%= link_to 'Edit', edit_article_path(article) %></td>
     <td><%= link_to 'Delete', article_path(article),
@@ -63,6 +78,7 @@
  <% end %> 
 <% end %>
 </table>
+</div>
 
 <% else %>
 <h1>Thanks for signing up!</h1>
