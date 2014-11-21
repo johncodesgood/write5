@@ -1,4 +1,4 @@
-<form action="/survey" method="post">
+<!-- <form action="/survey" method="post">
   <p>How many words will you write per day?</p>
   <input type="radio" name="word_count" value="250">250
   <input type="radio" name="word_count" value="500">500
@@ -17,4 +17,43 @@
   <br>
 
   <input type="submit">
-</form>
+</form> -->
+
+<%= form_for @user, url: survey_path, method: :post do |f| %>
+
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+      this user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>How many words will you write per day?<br>
+    <%= f.radio_button :word_count, 250, :required => true %><label_for="radios">250<br>
+    <%= f.radio_button :word_count, 500, :required => true %><label_for="radios">500<br>
+    <%= f.radio_button :word_count, 1000, :required => true %><label_for="radios">1000<br>
+  </p>
+  <br>
+
+  <p>If you had to pick one, which way do you lean politically?<br>
+    <%= f.radio_button :political, "liberal", :required => true %><label_for="radios">Left<br>
+    <%= f.radio_button :political, "conservative", :required => true %><label_for="radios">Right<br>
+  </p>
+  <br>
+
+  <p>Do you recycle yogurt containers?<br>
+    <%= f.radio_button :recycle, "yes", :required => true %><label_for="radios">Yes, how else do you sleep at night?<br>
+    <%= f.radio_button :recycle, "no", :required => true %><label_for="radios">Ew, gross, I hate rinsing.<br>
+  </p>
+  <br>
+
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+
+<% end %>

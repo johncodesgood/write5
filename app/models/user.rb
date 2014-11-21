@@ -9,5 +9,12 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, on: "create"
+
+  # THIS MAY NOT WORK, BUT IT MIGHT...
+
+  validates :word_count, presence: true, on: "update"
+  validates :political, presence: true, on: "update"
+  validates :recycle, presence: true, on: "update"
+
 end
