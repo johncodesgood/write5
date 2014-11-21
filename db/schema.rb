@@ -24,20 +24,6 @@ ActiveRecord::Schema.define(version: 20141121011619) do
     t.integer  "user_id"
   end
 
-  create_table "checks", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_facebooks", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
