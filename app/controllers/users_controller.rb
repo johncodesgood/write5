@@ -21,9 +21,9 @@ class UsersController < ApplicationController
   # end
 
   def survey
-    @word_count = params[:word_count]
-    @political = params[:political]
-    @recycle = params[:recycle]
+    @word_count = params[:user][:word_count]
+    @political = params[:user][:political]
+    @recycle = params[:user][:recycle]
 
     current_user.update_columns(word_count: @word_count, political: @political, recycle: @recycle, surveyed: true)
     redirect_to user_path(current_user)

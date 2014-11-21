@@ -25,4 +25,12 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  # THIS MAY NOT WORK, BUT IT MIGHT...
+
+  validates :word_count, presence: true, on: "update"
+  validates :political, presence: true, on: "update"
+  validates :recycle, presence: true, on: "update"
+
 end
+
