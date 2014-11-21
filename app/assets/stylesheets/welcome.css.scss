@@ -1,6 +1,6 @@
 
-.navigation {
-    @include background(linear-gradient(#fafafa, #f2f2f2) left repeat);
+.navigation { /* leaving option for gradient open */
+    @include background(linear-gradient( #FFFFFb,#FFFFFB) left repeat);
    height: 50px;
    text-align: right;
 
@@ -9,7 +9,7 @@
 
 .landing {
   height: 500px;
-  color: #F7F7F7;
+  color: #FFFFFB;
   background: url('./niteowl.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -17,10 +17,19 @@
   background-size: cover;
 }
 
-  
+.landing-text {
+  text-align: center;
+}  
+
+
+
+
+
+
 
 body {
-  background-color: #F2f2f2;
+  background-color: #FFFFFB;
 
 }
 
+/* FFFFFB = off-white */
