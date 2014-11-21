@@ -1,3 +1,5 @@
+// THIS ONE MIGHT WORK...
+
 // function validateForm() {
 //   var formValid = false;
 //   var radio1 = $($('input[type=radio]')[0]);
@@ -9,10 +11,12 @@
 //   var radio7 = $($('input[type=radio]')[6]);
 
 //   $('#survey-submit-button').click(function() {
-//     if radio1.is(':checked') || radio2.is(':checked') || radio3.is(':checked') {
-//       return formValid
+//     if (radio1.is(':checked') || radio2.is(':checked') || radio3.is(':checked')) && (radio4.is(':checked') || radio5.is(':checked')) && (radio6.is(':checked') || radio7.is(':checked')) {
+//       return !formValid;
 //     };
 //   });
+
+// THIS ONE PROBABLY DOESN'T WORK YET...
 
 //   var radios = document.getElementsByName("radios");
 //   var formValid = false;
