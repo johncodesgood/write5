@@ -50,3 +50,4 @@ gem 'pry'
 gem 'bcrypt'
 
 gem 'omniauth-facebook'
+gem 'koala'

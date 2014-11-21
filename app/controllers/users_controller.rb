@@ -2,23 +2,18 @@ require 'pry'
 
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
+  def index
 
-  def create
-  user = User.new(user_params)
-    if user.save
-      log_in user
-      redirect_to user
-    else
-      render 'new'
-    end
-  end
+  end 
 
-  # def index
-  #   @users = User.all
-  # end
+  def login
+    # @user = User.koala(request.env['omniauth.auth']['credentials'])
+    auth = request.env["omniauth.auth"]
+    @user = User.where(:provider => auth['provider'], 
+                    :uid => auth['uid']).first || User.create_with_omniauth(auth)
+    session[:user_id] = @user.id
+    redirect_to @user
+  end
 
   def survey
     @word_count = params[:user][:word_count]
@@ -33,31 +28,56 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit
-    @user = User.find(params[:id])
+  def logout
+    reset_session
+    redirect_to root_url
   end
 
-  def update
-    @user = User.find(params[:id])
 
-    if @user.update(user_params)
-      redirect_to @user
-    else
-      render 'edit'
-    end
-  end
+  # def new
+  #   @user = User.new
+  # end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+  # def create
+  # user = User.new(user_params)
+  #   if user.save
+  #     log_in user
+  #     redirect_to user
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
-    redirect_to users_path
-  end
+  # def index
+  #   @users = User.all
+  # end
 
-  private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password)
-    end
+  # def edit
+  #   @user = User.find(params[:id])
+  # end
+
+  # def update
+  #   @user = User.find(params[:id])
+
+  #   if @user.update(user_params)
+  #     redirect_to @user
+  #   else
+  #     render 'edit'
+  #   end
+  # end
+
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   @user.destroy
+
+  #   redirect_to users_path
+  # end
+
+  # private
+
+  #   def user_params
+  #     params.require(:user).permit(:name, :email, :password)
+  #   end
 
 end

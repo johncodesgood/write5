@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,30 +9,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navigation">
-  <%= link_to "Home | ", root_path %>
-  <% if logged_in? %> 
-    <% if current_user.provider == "facebook" %>  
-          <%= link_to 'Log Out | ', signout_path %>
+
+	<div class="navigation">
+		<% if logged_in? %> 
+       <%= link_to "Logout", '/logout' %>    	
     <% else %> 
-<!--       <%= link_to "Log Out | ", logout_path, method: :delete %> -->
+      <%= link_to "Facebook Login", '/auth/facebook' %>
     <% end %>
-    <%= link_to "Profile ", current_user %>
-	<% else %>  
-<!--     <%= link_to "Login | ", login_path %>
-    <%= link_to "Sign Up | ", new_user_path %> -->
-    <%= link_to 'Facebook Login ', signin_path %>
-	<% end %>
-  	<br>
-</div>
-<%= yield %>
+	</div>
 
-
-
-
+	<%= yield %>
 
 </body>
-
-
 
 </html>

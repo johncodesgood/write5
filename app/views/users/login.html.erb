@@ -1,8 +1,22 @@
-
+<%= image_tag @user['picture']['data']['url'].to_s %>
+<%= @user['name'] %>
 
 <% if current_user.surveyed %>
 
 <h1>Welcome <%= @user.name %>!</h1>
+
+<!-- <p>
+  <strong>Username:</strong>
+  <%= @user.name %>
+</p>
+ 
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+ 
+<%= link_to 'Edit Account', edit_user_path(@user) %> -->
+
 
 <h1>Current Week's Entries</h1>
 <%= link_to 'New article', new_article_path %>

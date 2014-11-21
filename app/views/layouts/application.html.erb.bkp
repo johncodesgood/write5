@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>NiteOwl</title>
+  <link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navigation">
+  <%= link_to "Home | ", root_path %>
+  <% if logged_in? %> 
+    <% if current_user.provider == "facebook" %>  
+          <%= link_to 'Log Out | ', signout_path %>
+    <% else %> 
+<!--       <%= link_to "Log Out | ", logout_path, method: :delete %> -->
+    <% end %>
+    <%= link_to "Profile ", current_user %>
+	<% else %>  
+<!--     <%= link_to "Login | ", login_path %>
+    <%= link_to "Sign Up | ", new_user_path %> -->
+<!--     <%= link_to 'Facebook Login ', signin_path %> -->
+    <%= link_to "Facebook Login", '/auth/facebook' %>
+	<% end %>
+  	<br>
+</div>
+<%= yield %>
+
+
+
+
+
+</body>
+
+
+
+</html> -->

@@ -13,11 +13,30 @@ class User < ActiveRecord::Base
     # has_secure_password
     # validates :password, length: { minimum: 6 }
 
+  # def self.create_with_omniauth(auth)
+  #   @facebook_user = 1
+  #   create! do |user|
+  #     user.provider = auth['provider']
+  #     user.uid = auth['uid']
+  #     user.auth_token = auth['credentials']['token']
+  #     if auth['info']
+  #       user.name = auth['info']['name'] || ""
+  #       user.email = auth['info']['email'] || ""
+  #     end
+  #   end
+  # end
+
+  def self.koala(auth)
+    access_token = auth['token']
+    facebook = Koala::Facebook::API.new(access_token)
+    facebook.get_object("me?fields=name,picture")
+  end
+
   def self.create_with_omniauth(auth)
-    @facebook_user = 1
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
+      user.auth_token = auth['credentials']['token']
       if auth['info']
         user.name = auth['info']['name'] || ""
         user.email = auth['info']['email'] || ""
