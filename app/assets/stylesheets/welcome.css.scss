@@ -1,4 +1,11 @@
 
+body {
+  background-color: #FFFFFB;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+
 .navigation { /* leaving option for gradient open */
     @include background(linear-gradient( #FFFFFb,#FFFFFB) left repeat);
    height: 50px;
@@ -26,39 +33,17 @@
   box-shadow:none;
 }
 
-div.shaming:hover {
-  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+div.shaming:hover, div.current-week:hover, div.previous-week:hover {
+  -moz-box-shadow: 0 0 5px rgba(255,0,0,0.5);
+  -webkit-box-shadow: 0 0 5px rgba(255,0,0,0.5);
+  box-shadow: 0 0 5px rgba(255,0,0,0.5);
   }
 
 
 .current-week {
     margin-bottom: 50px;
-
-}
-
-div.current-week:hover {
-  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  }
-
-div.previous-week:hover {
-  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
   }
 
 
-
-
-body {
-  background-color: #FFFFFB;
-  margin-right: 15px;
-  margin-left: 15px;
-
-
-}
 
 /* FFFFFB = off-white */
