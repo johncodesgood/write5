@@ -26,6 +26,11 @@
   box-shadow:none;
 }
 
+div.shaming:hover {
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
 
 
 .current-week {
@@ -33,12 +38,26 @@
 
 }
 
+div.current-week:hover {
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+
+div.previous-week:hover {
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
 
 
 
 
 body {
   background-color: #FFFFFB;
+  margin-right: 15px;
+  margin-left: 15px;
+
 
 }
 
