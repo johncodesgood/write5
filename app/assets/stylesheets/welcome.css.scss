@@ -9,8 +9,6 @@ body {
     @include background(linear-gradient( #F2F2F2,#FFFFFB) left repeat);
    height: 50px;
    text-align: right;
-
-
 }
 
 .landing {
@@ -47,35 +45,25 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
 
 .finish {
   background: url('./finish.jpg') no-repeat center center ; 
-  height: 200px;
+  height: 250px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin-right: 50px;
-  margin-left: 50px;
-
-  
-}
-
-.peerpressure{
-  background: url('./keepp.jpg') no-repeat center center ; 
-  height: 400px;
-
+  margin-right: 190px;
+  margin-left: 190px;
 
 }
 
-.motivation {
-  background: url('./motivation.jpg') no-repeat center center ; 
-  height: 200px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.peerpressure {
+  background: url('./keeppp.jpg') no-repeat center center; 
+  height: 250px;
   margin-right: 50px;
   margin-left: 50px;
 
- } 
+
+
+}
 
 .tagline {
   font-weight: 550;
