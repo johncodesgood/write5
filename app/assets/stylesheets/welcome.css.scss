@@ -53,18 +53,16 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin-right: 50px;
+  margin-left: 50px;
+
   
 }
 
 .peerpressure{
-  background: url('./peerpressure.jpg') no-repeat center center ; 
-  height: 600px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin-right: 70px;
-  margin-left: 70px;
+  background: url('./ppp.png') no-repeat center center ; 
+  height: 700px;
+
 
 }
 

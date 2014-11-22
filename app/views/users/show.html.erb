@@ -3,9 +3,7 @@
 
 <% if current_user.surveyed %>
 
-<h1>Welcome <%= @user.name %>!</h1>
-
-<h1>Current Week's Entries</h1>
+<h1><%= @user.name %></h1><br><br>
 
  
 
@@ -46,7 +44,7 @@
 
 
 <div class="shaming">
-<h4>Shaming Status</h4>
+<h4>Progress</h4>
 <% if count >= 5 %>
   <% You have completed all of your entries this week! %>
 <% else %>
