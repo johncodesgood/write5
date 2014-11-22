@@ -1,13 +1,13 @@
 
 body {
   background-color: #FFFFFB;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin: 0px;
+  margin-top: 0px;
 }
 
 
 .navigation { /* leaving option for gradient open */
-    @include background(linear-gradient( #FFFFFb,#FFFFFB) left repeat);
+    @include background(linear-gradient( #F2F2F2,#FFFFFB) left repeat);
    height: 50px;
    text-align: right;
 
@@ -78,8 +78,9 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
 
  } 
 
-
-
+.tagline {
+  text-align: center;
+}
 
 
 /* FFFFFB = off-white */
