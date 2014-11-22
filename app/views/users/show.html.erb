@@ -5,15 +5,11 @@
 
 <h1>Welcome <%= @user.name %>!</h1>
 
-<h1>Current Week's Entries</h1>
-
- 
-
 <%= link_to 'Start Writing!', new_article_path %>
 <br><br>
 
 <div class="current-week">
-<h4>Current Week Entries</h4>
+<h4>Current Week's Entries</h4>
 
 <table>
   <tr>
@@ -47,8 +43,9 @@
 
 <div class="shaming">
 <h4>Shaming Status</h4>
+<br>
 <% if count >= 5 %>
-  <% You have completed all of your entries this week! %>
+  <h6><% You have completed all of your entries this week! %></h6>
 <% else %>
 <h6>You have completed <%= count %> of 5 entries this week!</h6>
 <% end %>

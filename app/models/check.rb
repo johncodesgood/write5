@@ -5,7 +5,7 @@ class Check < ActiveRecord::Base
   def self.weekly
     puts "Daily check"
     t = Time.new
-    if t.thursday?
+    if t.sunday?
       puts "It's Sunday!!!"
       week_begin = Date.today.at_beginning_of_week
       week_end = Date.today.at_end_of_week

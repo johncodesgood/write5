@@ -12,6 +12,8 @@
 
 	<div class="navigation">
 		<% if logged_in? %> 
+       <%= link_to "Home | ", "/" %>
+       <%= link_to "Profile | ", "/users/#{current_user.id}"  %>
        <%= link_to "Logout", '/logout' %>    	
     <% else %> 
       <%= link_to "Facebook Login", '/auth/facebook' %>
