@@ -1,8 +1,7 @@
 
 body {
   background-color: #FFFFFB;
-  margin: 0px;
-  margin-top: 0px;
+  margin: .5px;
 }
 
 
@@ -60,8 +59,8 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
 }
 
 .peerpressure{
-  background: url('./ppp.png') no-repeat center center ; 
-  height: 700px;
+  background: url('./keepp.jpg') no-repeat center center ; 
+  height: 400px;
 
 
 }
@@ -79,8 +78,13 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
  } 
 
 .tagline {
-  text-align: center;
+  font-weight: 550;
+  padding-left: 3px;
 }
 
+.nitewriter {
+  padding-top: 3px;
+  padding-left: 3px;
+} 
 
 /* FFFFFB = off-white */
