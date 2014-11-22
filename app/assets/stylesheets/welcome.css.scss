@@ -26,6 +26,8 @@ body {
 
 .landing-text {
   text-align: center;
+  margin-right: 110px;
+  margin-left: 110px;
 }  
 
 .shaming {
@@ -43,6 +45,42 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
 .current-week {
     margin-bottom: 50px;
   }
+
+.finish {
+  background: url('./finish.jpg') no-repeat center center ; 
+  height: 200px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+
+.peerpressure{
+  background: url('./peerpressure.jpg') no-repeat center center ; 
+  height: 600px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-right: 70px;
+  margin-left: 70px;
+
+}
+
+.motivation {
+  background: url('./motivation.jpg') no-repeat center center ; 
+  height: 200px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-right: 50px;
+  margin-left: 50px;
+
+ } 
+
+
 
 
 
