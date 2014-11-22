@@ -51,3 +51,5 @@ gem 'bcrypt'
 
 gem 'omniauth-facebook'
 gem 'koala'
+
+gem 'rails_12factor', group: :production

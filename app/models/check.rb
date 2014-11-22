@@ -5,7 +5,7 @@ class Check < ActiveRecord::Base
   def self.weekly
     puts "Daily check"
     t = Time.new
-    if t.sunday?
+    if t.saturday?
       puts "It's Sunday!!!"
       week_begin = Date.today.at_beginning_of_week
       week_end = Date.today.at_end_of_week
@@ -20,7 +20,8 @@ class Check < ActiveRecord::Base
         if count >= 5
           puts "#{user.name} no shaming"
         else
-          puts "#{user.name} shaming"
+          @user_graph = Koala::Facebook::API.new(user.auth_token)
+          @user_graph.put_connections("me", "feed", :message => "I just gave to charity!")
         end
       end
     end

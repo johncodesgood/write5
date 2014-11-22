@@ -1,6 +1,7 @@
 require 'pry'
 class User < ActiveRecord::Base
   has_many :articles
+  has_one :facebook_oauth_setting
 
   def self.koala(auth)
     access_token = auth['token']
