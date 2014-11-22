@@ -1,17 +1,14 @@
 
 body {
   background-color: #FFFFFB;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin: .5px;
 }
 
 
 .navigation { /* leaving option for gradient open */
-    @include background(linear-gradient( #FFFFFb,#FFFFFB) left repeat);
+    @include background(linear-gradient( #F2F2F2,#FFFFFB) left repeat);
    height: 50px;
    text-align: right;
-
-
 }
 
 .landing {
@@ -26,6 +23,8 @@ body {
 
 .landing-text {
   text-align: center;
+  margin-right: 110px;
+  margin-left: 110px;
 }  
 
 .shaming {
@@ -44,6 +43,36 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
     margin-bottom: 50px;
   }
 
+.finish {
+  background: url('./finish.jpg') no-repeat center center ; 
+  height: 250px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-right: 190px;
+  margin-left: 190px;
 
+}
+
+.peerpressure {
+  background: url('./keeppp.jpg') no-repeat center center; 
+  height: 250px;
+  margin-right: 50px;
+  margin-left: 50px;
+
+
+
+}
+
+.tagline {
+  font-weight: 550;
+  padding-left: 3px;
+}
+
+.nitewriter {
+  padding-top: 3px;
+  padding-left: 3px;
+} 
 
 /* FFFFFB = off-white */

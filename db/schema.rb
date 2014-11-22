@@ -16,4 +16,36 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "sessions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.boolean  "surveyed"
+    t.string   "word_count"
+    t.string   "political"
+    t.string   "recycle"
+    t.string   "provider",        default: ""
+    t.string   "uid",             default: ""
+    t.string   "auth_token",      default: ""
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
+
 end
