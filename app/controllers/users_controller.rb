@@ -4,12 +4,12 @@ class UsersController < ApplicationController
 
   def index
 
-  end 
+  end
 
   def login
     # @user = User.koala(request.env['omniauth.auth']['credentials'])
     auth = request.env["omniauth.auth"]
-    @user = User.where(:provider => auth['provider'], 
+    @user = User.where(:provider => auth['provider'],
                     :uid => auth['uid']).first || User.create_with_omniauth(auth)
     session[:user_id] = @user.id
     redirect_to @user
@@ -19,8 +19,9 @@ class UsersController < ApplicationController
     @word_count = params[:user][:word_count]
     @political = params[:user][:political]
     @recycle = params[:user][:recycle]
+    @friend_phone_number = params[:user][:friend_phone_number]
 
-    current_user.update_columns(word_count: @word_count, political: @political, recycle: @recycle, surveyed: true)
+    current_user.update_columns(word_count: @word_count, political: @political, recycle: @recycle, friend_phone_number: @friend_phone_number, surveyed: true)
     redirect_to user_path(current_user)
   end
 

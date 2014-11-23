@@ -52,8 +52,14 @@
   </p>
   <br>
 
+  <p>What's your lit agent's/writing partner's/mortal enemy's phone number?<br>
+    <%= f.text_field :friend_phone_number, :class => 'number', :required => true %><br>
+    <em><p>Ten digits, numbers only, please.</p></em>
+    <p>BEWARE: We will text this person tales of your successes and failures.</p><br>
+  </p>
+
   <p>
     <%= f.submit "Submit" %>
-  </p>
+  </p>  
 
 <% end %>
