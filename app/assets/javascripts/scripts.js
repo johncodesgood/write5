@@ -1,3 +1,7 @@
+//Client-side friend_phone_number validation
+$('#number').regexMask(/^\d+$/);
+
+
 // THIS ONE MIGHT WORK...
 
 // function validateForm() {

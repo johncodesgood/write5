@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   validates :word_count, presence: true, on: "update"
   validates :political, presence: true, on: "update"
   validates :recycle, presence: true, on: "update"
+  validates :friend_phone_number, presence: true, :numericality => {:only_integer => true}, on: "update"
 
 end
 
