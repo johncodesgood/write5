@@ -2,6 +2,7 @@ require 'pry'
 class User < ActiveRecord::Base
   has_many :articles
   has_one :facebook_oauth_setting
+  has_one :accountability_keeper
 
   def self.koala(auth)
     access_token = auth['token']
@@ -21,13 +22,28 @@ class User < ActiveRecord::Base
     end
   end
 
+  # def self.text_friend
+  #   binding.pry
+  #   ENV["account_sid"]
+  #   ENV["auth_token"]
+
+  #   @client = Twilio::REST::Client.new account_sid, auth_token
+
+  #   @client.account.messages.create({
+  #     :from => '+15519996336',
+  #     :to => "+1#{(self.accountability_keeper).to_i}",
+  #     :body => "Remember when #{self.name} was supposed to finish writing some stuff this week? You should look into that...",
+  #   })
+
+  # end
+
 
   # THIS MAY NOT WORK, BUT IT MIGHT...
 
   validates :word_count, presence: true, on: "update"
   validates :political, presence: true, on: "update"
   validates :recycle, presence: true, on: "update"
-  validates :friend_phone_number, presence: true, :numericality => {:only_integer => true}, on: "update"
+  validates :accountability_keeper, presence: true, :numericality => {:only_integer => true}, on: "update"
 
 end
 

@@ -20,9 +20,12 @@ class UsersController < ApplicationController
     @word_count = params[:user][:word_count]
     @political = params[:user][:political]
     @recycle = params[:user][:recycle]
-    @friend_phone_number = params[:user][:friend_phone_number]
+    @accountability_keeper = params[:user][:accountability_keeper]
 
-    current_user.update_columns(word_count: @word_count, political: @political, recycle: @recycle, friend_phone_number: @friend_phone_number, surveyed: true)
+    AccountabilityKeeper.create(user_id: current_user.id, accountability_keeper: @accountability_keeper)
+
+    current_user.update_columns(word_count: @word_count, political: @political, recycle: @recycle, surveyed: true)
+    # (accountability_keeper: @accountability_keeper)
     redirect_to user_path(current_user)
   end
 
@@ -33,7 +36,7 @@ class UsersController < ApplicationController
     # page_token = @user_graph.get_connections('me', 'accounts')
     # page_id = page_token[1]["id"]
     # page_token = @user_graph.get_page_access_token(page_id)
-    # @page_graph = Koala::Facebook::API.new(page_token) 
+    # @page_graph = Koala::Facebook::API.new(page_token)
   end
 
   def logout

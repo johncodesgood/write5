@@ -1,5 +1,6 @@
 require 'pry'
 
+
 class Check < ActiveRecord::Base
 
   def self.weekly
@@ -20,14 +21,13 @@ class Check < ActiveRecord::Base
         end
         if count >= 5
           puts "#{user.name} no shaming"
-          puts AccountabilityKeeper.new(user).text_friend "no shaming"
+          AccountabilityKeeper.text_friend(user)
         else
-          @user_graph = Koala::Facebook::API.new(user.auth_token)
-          @user_graph.put_connections("me", "feed", :message => "I just gave to charity!")
-          puts AccountabilityKeeper.new(user).text_friend "shaming"
+          # @user_graph = Koala::Facebook::API.new(user.auth_token)
+          # @user_graph.put_connections("me", "feed", :message => "I just gave to charity!")
+          AccountabilityKeeper.text_friend(user)
         end
       end
-    end
     end
   end
 end
