@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -51,3 +52,7 @@ gem 'bcrypt'
 
 gem 'omniauth-facebook'
 gem 'koala'
+
+gem 'httparty'
+gem 'twilio-ruby'
+
