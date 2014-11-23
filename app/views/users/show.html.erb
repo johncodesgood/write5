@@ -1,5 +1,5 @@
 
-
+<div style="margin-left: 80px; margin-right: 80px">
 
 <% if current_user.surveyed %>
 
@@ -16,8 +16,9 @@
 
 <table>
   <tr>
-    <th>Title</th>
+    <th colspan="2">Title</th>
     <th>Date</th>
+    <th>Word Count</th>
     <th colspan="3"></th>
   </tr>
 <% if current_user.articles %> 
@@ -28,10 +29,15 @@
     <% if (article.created_at >= week_begin) %>
        <% if article.text.split.size >= current_user.word_count.to_i %>
         <% count += 1 %>
-       <% end %>
+      <% end %>
   <tr>
-    <td><%= article.title %></td>
-    <td><%= article.created_at %></td>
+    <td colspan="2"><strong><%= article.title %></strong></td>
+    <td><%= article.created_at.strftime("%m/%d/%Y")  %></td>
+    <% if article.text.split.size >= current_user.word_count.to_i %>
+        <td>Complete!</td>
+    <% else %>
+        <td><%= article.text.split.size %> of <%= current_user.word_count.to_i %></td>
+    <% end %>
     <td><%= link_to 'Show', article_path(article) %></td>
     <td><%= link_to 'Edit', edit_article_path(article) %></td>
     <td><%= link_to 'Delete', article_path(article),
@@ -41,7 +47,7 @@
  <% end %> 
 <% end %>
 </table>
-</div> s
+</div> 
 
 
 <div class="shaming">
@@ -61,16 +67,22 @@
 <h4>Previous Week's Entries</h4>
 <table>
   <tr>
-    <th>Title</th>
+    <th colspan="2">Title</th>
     <th>Date</th>
+    <th>Word Count</th>
     <th colspan="3"></th>
   </tr>
 <% if current_user.articles %> 
 <% current_user.articles.reverse_each do |article| %>
   <% if article.created_at < week_begin %>
   <tr>
-    <td><%= article.title %></td>
-    <td><%= article.created_at%></td>
+    <td colspan="2"><strong><%= article.title %></strong></td>
+    <td><%= article.created_at.strftime("%m/%d/%Y")  %></td>
+    <% if article.text.split.size >= current_user.word_count.to_i %>
+        <td><%= article.text.split.size %> (Complete!)</td>
+    <% else %>
+        <td><%= article.text.split.size %> of <%= current_user.word_count.to_i %></td>
+    <% end %>
     <td><%= link_to 'Show', article_path(article) %></td>
     <td><%= link_to 'Edit', edit_article_path(article) %></td>
     <td><%= link_to 'Delete', article_path(article),
@@ -82,6 +94,9 @@
 </table>
 </div>
 
+<%= link_to 'Delete Account', user_path(current_user), method: :delete %>
+<br>
+<br>
 <% else %>
 <h1>Thanks for signing up!</h1>
 <h2>We just have a few questions:</h2>
@@ -89,3 +104,5 @@
 <%= render partial: 'survey' %>
 
 <% end %>
+
+</div>

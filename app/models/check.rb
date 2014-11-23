@@ -23,9 +23,13 @@ class Check < ActiveRecord::Base
           puts "#{user.name} no shaming"
           AccountabilityKeeper.text_friend(user)
         else
-          # @user_graph = Koala::Facebook::API.new(user.auth_token)
-          # @user_graph.put_connections("me", "feed", :message => "I just gave to charity!")
           AccountabilityKeeper.text_friend(user)
+          # @user_graph = Koala::Facebook::API.new(user.auth_token)
+          # if user.political == "liberal"
+          #   @user_graph.put_connections("me", "feed", :message => "I just donated to Sarah Palin's PAC!  'America is looking for answers. She's looking for a new direction; the world is looking for a light. That light can come from America's great North Star; it can come from Alaska.'")
+          # else
+          #   @user_graph.put_connections("me", "feed", :message => "I just donated to the Obamacare Outreach Program!  'Universal healthcare is a right, not a priveledge.'")
+          # end
         end
       end
     end
