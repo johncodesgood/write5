@@ -16,7 +16,8 @@ class AccountabilityKeeper < ActiveRecord::Base
 
     @client.account.messages.create({
       :from => '+15519996336',
-      :to => "+1#{(@user.accountability_keeper).to_i}",
+      # :to => "#{@user.accountability_keeper.accountability_keeper.to_i}",
+      :to => '+1#{@user.accountability_keeper}',
       :body => "Remember when #{@user.name} was supposed to finish writing some stuff this week? You should look into that...",
     })
 

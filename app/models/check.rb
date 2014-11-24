@@ -12,6 +12,7 @@ class Check < ActiveRecord::Base
       week_begin = Date.today.at_beginning_of_week
       week_end = Date.today.at_end_of_week
       users = User.all
+      acct_keepers = AccountabilityKeeper.all
       users.each do |user|
         count = 0
         user.articles.each do |article|
@@ -21,9 +22,10 @@ class Check < ActiveRecord::Base
         end
         if count >= 5
           puts "#{user.name} no shaming"
-          AccountabilityKeeper.text_friend(user)
         else
-          AccountabilityKeeper.text_friend(user)
+          puts "#{user.name} shaming"
+          curr_acct_keeper = AccountabilityKeeper.find_by(user_id: user.id)
+          curr_acct_keeper.text_friend(user)
           # @user_graph = Koala::Facebook::API.new(user.auth_token)
           # if user.political == "liberal"
           #   @user_graph.put_connections("me", "feed", :message => "I just donated to Sarah Palin's PAC!  'America is looking for answers. She's looking for a new direction; the world is looking for a light. That light can come from America's great North Star; it can come from Alaska.'")
