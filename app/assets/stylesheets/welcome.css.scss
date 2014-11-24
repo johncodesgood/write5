@@ -17,7 +17,7 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background: url(image-path('niteowl.jpg')) no-repeat center center fixed;
+  background: url('./niteowl.jpg') no-repeat center center fixed; 
   background-size: cover;
 }
 
@@ -25,7 +25,7 @@ body {
   text-align: center;
   margin-right: 110px;
   margin-left: 110px;
-}
+}  
 
 .shaming {
   margin-bottom: 50px;
@@ -36,20 +36,15 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
   -moz-box-shadow: 0 0 5px rgba(255,0,0,0.5);
   -webkit-box-shadow: 0 0 5px rgba(255,0,0,0.5);
   box-shadow: 0 0 5px rgba(255,0,0,0.5);
- }
+  }
 
 
 .current-week {
     margin-bottom: 50px;
   }
 
-.current-week table td {
-    padding: 20px;
-}
-
-
 .finish {
-  background: url(image-path('finish.jpg')) no-repeat center center ;
+  background: url('./finish.jpg') no-repeat center center ; 
   height: 250px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -61,7 +56,7 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
 }
 
 .peerpressure {
-  background: url(image-path('keeppp.jpg')) no-repeat center center;
+  background: url('./keeppp.jpg') no-repeat center center; 
   height: 250px;
   margin-right: 50px;
   margin-left: 50px;
@@ -72,13 +67,11 @@ div.shaming:hover, div.current-week:hover, div.previous-week:hover {
   font-weight: 550;
   padding-left: 3px;
   margin-top: 400px;
-
 }
 
 .nitewriter {
   padding-top: 6px;
   padding-left: 6px;
-
 } 
 
 /* FFFFFB = off-white */

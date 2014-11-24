@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: write5_production
-  username: write5
-  password: <%= ENV['WRITE5_DATABASE_PASSWORD'] %>
+  #username: write5
+  #password: <%= ENV['WRITE5_DATABASE_PASSWORD'] %>
