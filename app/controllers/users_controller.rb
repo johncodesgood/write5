@@ -30,13 +30,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user_graph = Koala::Facebook::API.new(current_user.auth_token)
-    # @user_graph.put_connections("me", "feed", :message => "I am writing on my wall!")
     @user = User.find(params[:id])
-    # page_token = @user_graph.get_connections('me', 'accounts')
-    # page_id = page_token[1]["id"]
-    # page_token = @user_graph.get_page_access_token(page_id)
-    # @page_graph = Koala::Facebook::API.new(page_token)
   end
 
   def logout
