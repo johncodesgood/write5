@@ -78,7 +78,7 @@
     <td colspan="2"><strong><%= article.title %></strong></td>
     <td><%= article.created_at.strftime("%m/%d/%Y")  %></td>
     <% if article.text.split.size >= current_user.word_count.to_i %>
-        <td><%= article.text.split.size %> (Complete!)</td>
+        <td>Complete!</td>
     <% else %>
         <td><%= article.text.split.size %> of <%= current_user.word_count.to_i %></td>
     <% end %>

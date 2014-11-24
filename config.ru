@@ -1,6 +1,7 @@
 # This file is used by Rack-based servers to start the application.
+Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+# Dotenv::Railtie.load
 
 HOSTNAME = ENV['HOSTNAME']
 
