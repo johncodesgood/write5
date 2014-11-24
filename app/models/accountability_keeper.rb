@@ -21,7 +21,7 @@ class AccountabilityKeeper < ActiveRecord::Base
     phone = @user.accountability_keeper.accountability_keeper
 
     @client.account.messages.create({
-        :from => '+15519996336',
+        :from => '+14846853890',
         :to => phone, 
         :body => "Remember when #{@user.name} was supposed to finish writing some stuff this week? You should look into that...",   
     })

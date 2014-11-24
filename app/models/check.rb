@@ -7,7 +7,7 @@ class Check < ActiveRecord::Base
     puts "Daily check"
     t = Time.new
 
-    if t.sunday?
+    # if t.sunday?
       puts "It's Sunday!!!"
       week_begin = Date.today.at_beginning_of_week
       week_end = Date.today.at_end_of_week
@@ -26,15 +26,16 @@ class Check < ActiveRecord::Base
           puts "#{user.name} shaming"
           curr_acct_keeper = AccountabilityKeeper.find_by(user_id: user.id)
           curr_acct_keeper.text_friend(user)
-          # @user_graph = Koala::Facebook::API.new(user.auth_token)
-          # if user.political == "liberal"
-          #   @user_graph.put_connections("me", "feed", :message => "I just donated to Sarah Palin's PAC!  'America is looking for answers. She's looking for a new direction; the world is looking for a light. That light can come from America's great North Star; it can come from Alaska.'")
-          # else
-          #   @user_graph.put_connections("me", "feed", :message => "I just donated to the Obamacare Outreach Program!  'Universal healthcare is a right, not a priveledge.'")
-          # end
+          @user_graph = Koala::Facebook::API.new(user.auth_token)
+          if user.political == "liberal"
+            num = rand(1000)
+            @user_graph.put_connections("me", "feed", :message => "I just donated to Sarah Palin's PAC!  'America is looking for answers. She's looking for a new direction; the world is looking for a light. That light can come from America's great North Star; it can come from Alaska.' #{num}")
+          else
+            @user_graph.put_connections("me", "feed", :message => "I just donated to the Obamacare Outreach Program!  'Universal healthcare is a right, not a priveledge.'")
+          end
         end
       end
-    end
+    # end
   end
 end
 

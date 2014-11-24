@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   post 'survey' => 'users#survey'
+  get 'test' => 'users#test_check'
 
   # get '/auth/:provider/callback' => 'sessionsfacebook#create'
 
