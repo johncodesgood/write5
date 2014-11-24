@@ -1,3 +1,7 @@
 development:
-  app_id: 377195279107195
-  secret: 5f507a2d6497290e97a6a3fddf9b70d1
+  app_id: ENV['FACEBOOK_ID']
+  secret: ENV['FACEBOOK_SECRET']
+
+production:
+  app_id: ENV['FACEBOOK_ID']
+  secret: ENV['FACEBOOK_SECRET']
