@@ -47,8 +47,6 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     dotenv (1.0.2)
-    dotenv-deployment (0.2.0)
-      dotenv (~> 1.0)
     dotenv-rails (1.0.2)
       dotenv (= 1.0.2)
     erubis (2.7.0)
@@ -176,7 +174,6 @@ DEPENDENCIES
   bitters
   bourbon
   coffee-rails (~> 4.0.0)
-  dotenv-deployment
   dotenv-rails
   httparty
   jbuilder (~> 2.0)
