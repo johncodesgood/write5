@@ -1,6 +1,7 @@
 //Client-side friend_phone_number validation
-$('#number').regexMask(/^\d+$/);
+$('.number').regexMask(/^\d+$/);
 
+//WORD COUNT JAVASCRIPT is in a script tag in the _form.html.erb
 
 // THIS ONE MIGHT WORK...
 
