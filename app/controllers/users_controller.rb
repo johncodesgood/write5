@@ -29,6 +29,11 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def test_check
+    Check.weekly
+    redirect_to current_user
+  end
+
   def show
     @user = User.find(params[:id])
   end
