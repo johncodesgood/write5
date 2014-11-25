@@ -13,12 +13,19 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+#Dotenv::Railtie.load
 
 HOSTNAME = ENV['HOSTNAME']
 
 module Write5
   class Application < Rails::Application
+
+    # Dotenv breaks because of newer Rails... For now. So, workaround time!
+    # Workaround: https://github.com/bkeepers/dotenv/issues/144#issuecomment-59464328
+    unless Rails.env.production?
+        Dotenv.load Rails.root.join('file.env')
+        Spring.watch Rails.root.join('file.env') if defined?(Spring)
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
