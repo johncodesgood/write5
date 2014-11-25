@@ -1,105 +1,105 @@
+<div class="user-show-background">
+</div>
+  <% if current_user.surveyed %>
 
 
-<% if current_user.surveyed %>
+  <h1><%= @user.name %></h1><br><br>
 
+   
 
-<h1><%= @user.name %></h1><br><br>
+  <%= link_to 'Start Writing!', new_article_path %>
+  <br><br>
 
- 
+  <div class="current-week">
+  <h4>Current Week's Entries</h4>
 
-<%= link_to 'Start Writing!', new_article_path %>
-<br><br>
-
-<div class="current-week">
-<h4>Current Week's Entries</h4>
-
-<table>
-  <tr>
-    <th colspan="2">Title</th>
-    <th>Date</th>
-    <th>Word Count</th>
-    <th colspan="3"></th>
-  </tr>
-<% if current_user.articles %> 
-<% week_begin = Date.today.at_beginning_of_week %>
-<% week_end = Date.today.at_end_of_week %>
-<% count = 0 %>
-<% current_user.articles.reverse_each do |article| %>
-    <% if (article.created_at >= week_begin) %>
-       <% if article.text.split.size >= current_user.word_count.to_i %>
-        <% count += 1 %>
+  <table>
+    <tr>
+      <th colspan="2">Title</th>
+      <th>Date</th>
+      <th>Word Count</th>
+      <th colspan="3"></th>
+    </tr>
+  <% if current_user.articles %> 
+  <% week_begin = Date.today.at_beginning_of_week %>
+  <% week_end = Date.today.at_end_of_week %>
+  <% count = 0 %>
+  <% current_user.articles.reverse_each do |article| %>
+      <% if (article.created_at >= week_begin) %>
+         <% if article.text.split.size >= current_user.word_count.to_i %>
+          <% count += 1 %>
+        <% end %>
+    <tr>
+      <td colspan="2"><strong><%= article.title %></strong></td>
+      <td><%= article.created_at.strftime("%m/%d/%Y")  %></td>
+      <% if article.text.split.size >= current_user.word_count.to_i %>
+          <td>Complete!</td>
+      <% else %>
+          <td><%= article.text.split.size %> of <%= current_user.word_count.to_i %></td>
       <% end %>
-  <tr>
-    <td colspan="2"><strong><%= article.title %></strong></td>
-    <td><%= article.created_at.strftime("%m/%d/%Y")  %></td>
-    <% if article.text.split.size >= current_user.word_count.to_i %>
-        <td>Complete!</td>
-    <% else %>
-        <td><%= article.text.split.size %> of <%= current_user.word_count.to_i %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Delete', article_path(article),
+                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
-    <td><%= link_to 'Show', article_path(article) %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Delete', article_path(article),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+   <% end %> 
   <% end %>
- <% end %> 
-<% end %>
-</table>
-</div> 
+  </table>
+  </div> 
 
 
-<div class="shaming">
+  <div class="shaming">
 
 
-<h4>Progress</h4>
-<br>
-<% if count >= 5 %>
-  <h6><% You have completed all of your entries this week! %></h6>
-<% else %>
-<h6>You have completed <%= count %> of 5 entries this week!</h6>
-<% end %>
-</div>
+  <h4>Progress</h4>
+  <br>
+  <% if count >= 5 %>
+    <h6><% You have completed all of your entries this week! %></h6>
+  <% else %>
+  <h6>You have completed <%= count %> of 5 entries this week!</h6>
+  <% end %>
+  </div>
 
 
-<div class="previous-week">
-<h4>Previous Week's Entries</h4>
-<table>
-  <tr>
-    <th colspan="2">Title</th>
-    <th>Date</th>
-    <th>Word Count</th>
-    <th colspan="3"></th>
-  </tr>
-<% if current_user.articles %> 
-<% current_user.articles.reverse_each do |article| %>
-  <% if article.created_at < week_begin %>
-  <tr>
-    <td colspan="2"><strong><%= article.title %></strong></td>
-    <td><%= article.created_at.strftime("%m/%d/%Y")  %></td>
-    <% if article.text.split.size >= current_user.word_count.to_i %>
-        <td><%= article.text.split.size %> (Complete!)</td>
-    <% else %>
-        <td><%= article.text.split.size %> of <%= current_user.word_count.to_i %></td>
+  <div class="previous-week">
+  <h4>Previous Week's Entries</h4>
+  <table>
+    <tr>
+      <th colspan="2">Title</th>
+      <th>Date</th>
+      <th>Word Count</th>
+      <th colspan="3"></th>
+    </tr>
+  <% if current_user.articles %> 
+  <% current_user.articles.reverse_each do |article| %>
+    <% if article.created_at < week_begin %>
+    <tr>
+      <td colspan="2"><strong><%= article.title %></strong></td>
+      <td><%= article.created_at.strftime("%m/%d/%Y")  %></td>
+      <% if article.text.split.size >= current_user.word_count.to_i %>
+          <td><%= article.text.split.size %> (Complete!)</td>
+      <% else %>
+          <td><%= article.text.split.size %> of <%= current_user.word_count.to_i %></td>
+      <% end %>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Delete', article_path(article),
+                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
-    <td><%= link_to 'Show', article_path(article) %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Delete', article_path(article),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+   <% end %> 
   <% end %>
- <% end %> 
-<% end %>
-</table>
-</div>
+  </table>
+  </div>
 
-<%= link_to 'Delete Account', user_path(current_user), method: :delete %>
-<br>
-<br>
-<% else %>
-<h1>Thanks for signing up!</h1>
-<h2>We just have a few questions:</h2>
+  <%= link_to 'Delete Account', user_path(current_user), method: :delete %>
+  <br>
+  <br>
+  <% else %>
+  <h1>Thanks for signing up!</h1>
+  <h2>We just have a few questions:</h2>
 
-<%= render partial: 'survey' %>
+  <%= render partial: 'survey' %>
 
-<% end %>
+  <% end %>

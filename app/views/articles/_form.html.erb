@@ -1,29 +1,54 @@
-<div class="margins">
-<%= form_for @article do |f| %>
-  <% if @article.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@article.errors.count, "error") %> prohibited
-      this article from being saved:</h2>
-    <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <br>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text, :cols => "200", :rows => "25"%>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+
+<div class="article-form">
+  <%= form_for @article do |f| %>
+    <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:</h2>
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>  
+    <br>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+   
+   <div class="article-textfield">
+      <p>
+        <%= f.label :text %><br>
+        <%= f.text_area :text, :id => 'TextArea', :cols => 20, :rows => 10%>
+      </p>
+    </div>
+
+    <p id="wordCountDisplay">
+      Word Count:
+    </p>
+   
+    <p>
+      <%= f.submit %>
+    </p>
+
+  <% end %>  
 </div>
+
+<script>
+  $(
+    function(){
+      var wordCount = $('#TextArea').val().match(/\S+/g).length;
+      $('#wordCountDisplay').html("Word Count: " + wordCount);
+      console.log('ready!');
+
+      $('#TextArea').keyup(function(){
+        var wordCount = this.value.match(/\S+/g).length;
+        $('#wordCountDisplay').html("Word Count: " + wordCount);
+      });
+    });
+
+  
+</script>
+
